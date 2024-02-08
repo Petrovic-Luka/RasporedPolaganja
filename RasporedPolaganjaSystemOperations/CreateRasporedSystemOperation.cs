@@ -9,24 +9,13 @@ namespace RasporedPolaganjaSystemOperations
 {
     public class CreateRasporedSystemOperation : SystemOperationBase
     {
-        public Raspored raspored;
+        public List<PrijavaNaTerminPolaganja> prijave;
         protected override void ExecuteConcreteOperation()
         {
-            int brojacSala = 0;
-            int brojacMesta = 0;
-            foreach(PrijavaNaTerminPolaganja p in raspored.prijave)
+            foreach(PrijavaNaTerminPolaganja p in prijave)
             {
-                Raspored r = new Raspored();
-                r.TerminId= p.TerminId;
-                r.BrojIndeksa=p.BrojIndeksa;
-                r.SalaId = raspored.ZadateSale[brojacSala].SalaId;
-                brojacMesta++;
-                if(brojacMesta>= raspored.ZadateSale[brojacSala].BrojMesta)
-                {
-                    brojacSala++;
-                    brojacMesta = 0;
-                }
-                repository.Add(r);
+                string criteria = $"BrojIndeksa='{p.BrojIndeksa}' and TerminId={p.TerminId}";
+                repository.Update(p,criteria);
 
             }
         }

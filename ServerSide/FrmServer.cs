@@ -59,8 +59,16 @@ namespace ServerSide
 
         private void FrmServer_Load(object sender, EventArgs e)
         {
-            Server.Instance.StartServer();
-            btnStartServer.Enabled = false;
+            try
+            {
+                Server.Instance.StartServer();
+                btnStartServer.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

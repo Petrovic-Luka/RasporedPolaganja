@@ -17,8 +17,7 @@ namespace ClientSide
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmLogIn());
-            MainCoordinator.Instance.frmLogIn=new FrmLogIn();
+            MainCoordinator.Instance.frmLogIn = new FrmLogIn();
             MainCoordinator.Instance.CreateLogIn();
             Application.Run(MainCoordinator.Instance.frmLogIn);
 

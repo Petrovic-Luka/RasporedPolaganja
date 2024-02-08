@@ -28,33 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogIn));
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogIn = new System.Windows.Forms.Button();
             this.cbProfesor = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // txtUserName
+            // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(139, 103);
-            this.txtEmail.Name = "txtUserName";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.BackColor = System.Drawing.Color.Honeydew;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(109, 96);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(149, 22);
             this.txtEmail.TabIndex = 0;
             this.txtEmail.Text = "lp@gmail.com";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(139, 173);
+            this.txtPassword.BackColor = System.Drawing.Color.Honeydew;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(109, 160);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(149, 22);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.Text = "12345";
             // 
             // btnLogIn
             // 
-            this.btnLogIn.Location = new System.Drawing.Point(152, 256);
+            this.btnLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogIn.Location = new System.Drawing.Point(134, 263);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(75, 23);
+            this.btnLogIn.Size = new System.Drawing.Size(100, 23);
             this.btnLogIn.TabIndex = 2;
             this.btnLogIn.Text = "LogIn";
             this.btnLogIn.UseVisualStyleBackColor = true;
@@ -63,9 +70,10 @@
             // cbProfesor
             // 
             this.cbProfesor.AutoSize = true;
-            this.cbProfesor.Location = new System.Drawing.Point(152, 220);
+            this.cbProfesor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProfesor.Location = new System.Drawing.Point(134, 214);
             this.cbProfesor.Name = "cbProfesor";
-            this.cbProfesor.Size = new System.Drawing.Size(65, 17);
+            this.cbProfesor.Size = new System.Drawing.Size(77, 20);
             this.cbProfesor.TabIndex = 3;
             this.cbProfesor.Text = "Profesor";
             this.cbProfesor.UseVisualStyleBackColor = true;
@@ -74,13 +82,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(376, 428);
             this.Controls.Add(this.cbProfesor);
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogIn";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "LogIn";
             this.Load += new System.EventHandler(this.FrmLogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

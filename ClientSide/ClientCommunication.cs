@@ -62,6 +62,7 @@ namespace ClientSide
         {
             try
             {
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
                 Request req = new Request()
                 {
                     Body = student,
@@ -72,6 +73,11 @@ namespace ClientSide
 
                 student = (Student)res.Data;
                 return student;
+            }
+            catch (IOException ex)
+            {
+                CloseApp();
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -85,6 +91,7 @@ namespace ClientSide
         {
             try
             {
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
                 Request req = new Request()
                 {
                     Body = profesor,
@@ -97,6 +104,11 @@ namespace ClientSide
 
                 return profesor;
             }
+            catch (IOException ex)
+            {
+                CloseApp();
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -107,7 +119,7 @@ namespace ClientSide
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -122,17 +134,23 @@ namespace ClientSide
 
                 return ispiti;
             }
+            catch (IOException ex)
+            {
+                CloseApp();
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
             }
+
         }
 
         public string CreateIspit(Ispit ispit)
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -148,12 +166,13 @@ namespace ClientSide
             }
             catch (IOException ex)
             {
-                return "Niste povezani na server molimo resetujte aplikaciju";
+                CloseApp();
+                throw ex;
             }
 
             catch (Exception ex)
             {
-                return ex.Message;
+                return "Kreiranje ispita nije uspelo";
             }
         }
 
@@ -161,7 +180,7 @@ namespace ClientSide
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -177,12 +196,13 @@ namespace ClientSide
             }
             catch (IOException ex)
             {
-                return "Niste povezani na server molimo resetujte aplikaciju";
+                CloseApp();
+                throw ex;
             }
 
             catch (Exception ex)
             {
-                return ex.Message;
+                return "Kreiranje termina polaganja nije uspelo";
             }
         }
 
@@ -190,7 +210,7 @@ namespace ClientSide
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -205,6 +225,11 @@ namespace ClientSide
 
                 return termini;
             }
+            catch (IOException ex)
+            {
+                CloseApp();
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -215,7 +240,7 @@ namespace ClientSide
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -231,6 +256,12 @@ namespace ClientSide
 
                 return termini;
             }
+            catch (IOException ex)
+            {
+                CloseApp();
+                throw ex;
+            }
+
             catch (Exception ex)
             {
                 throw ex;
@@ -241,7 +272,7 @@ namespace ClientSide
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -257,12 +288,13 @@ namespace ClientSide
             }
             catch (IOException ex)
             {
-                return "Niste povezani na server molimo resetujte aplikaciju";
+                CloseApp();
+                throw ex;
             }
 
             catch (Exception ex)
             {
-                return ex.Message;
+                return "Kreiranje naloga nije uspelo";
             }
         }
 
@@ -270,7 +302,7 @@ namespace ClientSide
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -295,12 +327,13 @@ namespace ClientSide
             }
             catch (IOException ex)
             {
-                return "Niste povezani na server molimo resetujte aplikaciju";
+                CloseApp();
+                throw ex;
             }
 
             catch (Exception ex)
             {
-                return ex.Message;
+                return "Kreiranje prijave nije uspelo";
             }
         }
 
@@ -308,7 +341,7 @@ namespace ClientSide
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -334,12 +367,13 @@ namespace ClientSide
             }
             catch (IOException ex)
             {
-                return "Niste povezani na server molimo resetujte aplikaciju";
+                CloseApp();
+                throw ex;
             }
 
             catch (Exception ex)
             {
-                return ex.Message;
+                return "Brisanje prijave nije uspelo";
             }
         }
 
@@ -347,7 +381,7 @@ namespace ClientSide
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException();
 
                 Request req = new Request()
                 {
@@ -362,6 +396,11 @@ namespace ClientSide
 
                 return sale;
             }
+            catch (IOException ex)
+            {
+                CloseApp();
+                throw ex;
+            }
             catch (Exception ex)
             {
 
@@ -373,7 +412,7 @@ namespace ClientSide
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -389,23 +428,28 @@ namespace ClientSide
 
                 return prijave;
             }
+            catch (IOException ex)
+            {
+                CloseApp();
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
 
-        public string CreateRaspored(Raspored raspored)
+        public string CreateRaspored(List<PrijavaNaTerminPolaganja> prijave)
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
                     Operation = Operation.CreateRaspored
                 };
-                req.Body = raspored;
+                req.Body = prijave;
                 sender.Send(req);
                 Response res = receiver.Receive<Response>();
 
@@ -415,20 +459,21 @@ namespace ClientSide
             }
             catch (IOException ex)
             {
-                return "Niste povezani na server molimo resetujte aplikaciju";
+                CloseApp();
+                throw ex;
             }
 
             catch (Exception ex)
             {
-                return ex.Message;
+                return "Kreiranje rasporeda nije uspelo";
             }
         }
 
-        public List<Raspored> SearchRaspored(TerminPolaganja t)
+        public List<PrijavaNaTerminPolaganja> SearchRaspored(TerminPolaganja t)
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -438,11 +483,16 @@ namespace ClientSide
                 sender.Send(req);
                 Response res = receiver.Receive<Response>();
 
-                List<Raspored> raspored = (List<Raspored>)res.Data;
+                List<PrijavaNaTerminPolaganja> prijave = (List<PrijavaNaTerminPolaganja>)res.Data;
 
                 if (!res.Success) throw new Exception(res.Exception.Message);
 
-                return raspored;
+                return prijave;
+            }
+            catch (IOException ex)
+            {
+                CloseApp();
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -454,7 +504,7 @@ namespace ClientSide
         {
             try
             {
-                if (!connectedToServer) throw new IOException("Niste konektovani na server");
+                if (!SocketConnected()) throw new IOException("Niste konektovani na server");
 
                 Request req = new Request()
                 {
@@ -470,13 +520,35 @@ namespace ClientSide
 
                 return new BindingList<PrijavaNaTerminPolaganja>(raspored);
             }
+            catch (IOException ex)
+            {
+                CloseApp();
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
 
+        public bool SocketConnected()
+        {
+            if (!connectedToServer) return false;
+            if (socket == null) return false;
+            if (socket.Connected == false) return false;
+            bool part1 = socket.Poll(1000, SelectMode.SelectRead);
+            bool part2 = (socket.Available == 0);
+            if (part1 && part2)
+                return false;
+            else
+                return true;
+        }
 
+        public void CloseApp()
+        {
+            MessageBox.Show("Niste povezani na server resetovanje aplikacije");
+            MainCoordinator.Instance.frmLogIn.Close();
+        }
         #endregion
     }
 

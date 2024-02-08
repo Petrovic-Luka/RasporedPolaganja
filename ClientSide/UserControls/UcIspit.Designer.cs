@@ -29,40 +29,44 @@
         private void InitializeComponent()
         {
             this.dgvDisplay = new System.Windows.Forms.DataGridView();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDisplay
             // 
             this.dgvDisplay.AllowUserToAddRows = false;
             this.dgvDisplay.AllowUserToDeleteRows = false;
+            this.dgvDisplay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDisplay.Location = new System.Drawing.Point(30, 51);
+            this.dgvDisplay.Location = new System.Drawing.Point(32, 39);
             this.dgvDisplay.Name = "dgvDisplay";
             this.dgvDisplay.ReadOnly = true;
-            this.dgvDisplay.Size = new System.Drawing.Size(387, 184);
+            this.dgvDisplay.Size = new System.Drawing.Size(270, 319);
             this.dgvDisplay.TabIndex = 0;
             // 
-            // btnAdd
+            // pictureBox1
             // 
-            this.btnAdd.Location = new System.Drawing.Point(186, 301);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = " Dodaj novi";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            this.pictureBox1.Image = global::ClientSide.Properties.Resources.s1;
+            this.pictureBox1.Location = new System.Drawing.Point(352, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(414, 319);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // UcIspit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnAdd);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgvDisplay);
             this.Name = "UcIspit";
-            this.Size = new System.Drawing.Size(468, 504);
+            this.Size = new System.Drawing.Size(800, 400);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -70,6 +74,6 @@
         #endregion
 
         public System.Windows.Forms.DataGridView dgvDisplay;
-        public System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

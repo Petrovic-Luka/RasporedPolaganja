@@ -26,9 +26,17 @@ namespace ClientSide.Forms
 
         public void ChangePanel(Control control)
         {
-            pnlMain.Controls.Clear();
-            control.Dock = DockStyle.Fill;
-            pnlMain.Controls.Add(control);
+            try
+            {
+                pnlMain.Controls.Clear();
+                control.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(control);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void FrmProfesor_Load(object sender, EventArgs e)

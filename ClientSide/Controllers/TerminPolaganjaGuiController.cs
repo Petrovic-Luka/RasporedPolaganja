@@ -28,14 +28,28 @@ namespace ClientSide.Controllers
 
         private void BtnShowRaspored_Click(object sender, EventArgs e)
         {
-            TerminPolaganja t= ucShowTerminePolaganja.dgvPrikaz.SelectedRows[0].DataBoundItem as TerminPolaganja;
-            MainCoordinator.Instance.ShowRaspored(t);
+            try
+            {
+                TerminPolaganja t = ucShowTerminePolaganja.dgvPrikaz.SelectedRows[0].DataBoundItem as TerminPolaganja;
+                MainCoordinator.Instance.ShowRaspored(t);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nije odabran termin");
+            }
         }
 
         private void BtnRasporedClick(object sender, EventArgs e)
         {
-            TerminPolaganja t = ucShowTerminePolaganja.dgvPrikaz.SelectedRows[0].DataBoundItem as TerminPolaganja;
-            MainCoordinator.Instance.ShowCreateRaspored(t);
+            try
+            {
+                TerminPolaganja t = ucShowTerminePolaganja.dgvPrikaz.SelectedRows[0].DataBoundItem as TerminPolaganja;
+                MainCoordinator.Instance.ShowCreateRaspored(t);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nije odabran termin");
+            }
         }
 
         public UcKreirajTerminPolaganja ShowUcKreirajTerminPolaganja()

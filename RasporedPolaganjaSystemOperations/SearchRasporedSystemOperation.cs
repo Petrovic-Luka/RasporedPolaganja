@@ -10,11 +10,13 @@ namespace RasporedPolaganjaSystemOperations
     public class SearchRasporedSystemOperation : SystemOperationBase
     {
         public TerminPolaganja termin;
-        public List<Raspored> raspored;
+        public List<PrijavaNaTerminPolaganja> prijave;
         protected override void ExecuteConcreteOperation()
         {
             string criteria = $" TerminId={termin.TerminPolaganjaId}";
-            raspored = repository.Search(new Raspored(), criteria).Cast<Raspored>().ToList();
+            PrijavaNaTerminPolaganja prijava=new PrijavaNaTerminPolaganja();
+            prijava.SalaId = 0;
+            prijave=repository.Search(prijava,criteria).Cast<PrijavaNaTerminPolaganja>().ToList();
         }
     }
 }

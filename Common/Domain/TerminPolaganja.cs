@@ -20,6 +20,7 @@ namespace Common.Domain
 
         public DateTime PrijavaDo { get; set; }
 
+        [Browsable(false)]
         public int MaxBrojSala { get; set; }
 
         [Browsable(false)]

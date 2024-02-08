@@ -44,9 +44,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(28, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.Size = new System.Drawing.Size(35, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sala";
             // 
@@ -54,6 +55,7 @@
             // 
             this.dgwDodateSale.AllowUserToAddRows = false;
             this.dgwDodateSale.AllowUserToDeleteRows = false;
+            this.dgwDodateSale.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwDodateSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwDodateSale.Location = new System.Drawing.Point(12, 219);
             this.dgwDodateSale.Name = "dgwDodateSale";
@@ -66,6 +68,8 @@
             // 
             this.dgwSale.AllowUserToAddRows = false;
             this.dgwSale.AllowUserToDeleteRows = false;
+            this.dgwSale.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgwSale.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgwSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwSale.Location = new System.Drawing.Point(12, 84);
             this.dgwSale.Name = "dgwSale";
@@ -76,7 +80,8 @@
             // 
             // btnDodajSalu
             // 
-            this.btnDodajSalu.Location = new System.Drawing.Point(376, 109);
+            this.btnDodajSalu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajSalu.Location = new System.Drawing.Point(397, 109);
             this.btnDodajSalu.Name = "btnDodajSalu";
             this.btnDodajSalu.Size = new System.Drawing.Size(75, 23);
             this.btnDodajSalu.TabIndex = 4;
@@ -85,7 +90,8 @@
             // 
             // btnUkloniSalu
             // 
-            this.btnUkloniSalu.Location = new System.Drawing.Point(376, 262);
+            this.btnUkloniSalu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUkloniSalu.Location = new System.Drawing.Point(397, 262);
             this.btnUkloniSalu.Name = "btnUkloniSalu";
             this.btnUkloniSalu.Size = new System.Drawing.Size(75, 23);
             this.btnUkloniSalu.TabIndex = 5;
@@ -95,32 +101,36 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 203);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(28, 200);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.Size = new System.Drawing.Size(99, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Odabrane Sale";
             // 
             // lblPrijave
             // 
             this.lblPrijave.AutoSize = true;
+            this.lblPrijave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrijave.Location = new System.Drawing.Point(165, 351);
             this.lblPrijave.Name = "lblPrijave";
-            this.lblPrijave.Size = new System.Drawing.Size(60, 13);
+            this.lblPrijave.Size = new System.Drawing.Size(76, 16);
             this.lblPrijave.TabIndex = 7;
             this.lblPrijave.Text = "Broj Prijava";
             // 
             // lblMesta
             // 
             this.lblMesta.AutoSize = true;
+            this.lblMesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMesta.Location = new System.Drawing.Point(285, 351);
             this.lblMesta.Name = "lblMesta";
-            this.lblMesta.Size = new System.Drawing.Size(94, 13);
+            this.lblMesta.Size = new System.Drawing.Size(118, 16);
             this.lblMesta.TabIndex = 8;
             this.lblMesta.Text = "Odabrano mesta 0";
             // 
             // btnKreirajRaspored
             // 
+            this.btnKreirajRaspored.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKreirajRaspored.Location = new System.Drawing.Point(12, 351);
             this.btnKreirajRaspored.Name = "btnKreirajRaspored";
             this.btnKreirajRaspored.Size = new System.Drawing.Size(111, 23);
@@ -142,7 +152,7 @@
             this.Controls.Add(this.dgwDodateSale);
             this.Controls.Add(this.label1);
             this.Name = "UcKreirajRaspored";
-            this.Size = new System.Drawing.Size(725, 443);
+            this.Size = new System.Drawing.Size(800, 400);
             this.Load += new System.EventHandler(this.UcKreirajRaspored_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwDodateSale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwSale)).EndInit();

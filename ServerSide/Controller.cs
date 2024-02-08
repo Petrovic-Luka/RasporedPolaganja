@@ -109,19 +109,19 @@ namespace ServerSide
             return operation.sale;
         }
 
-        public void CreateRaspored(Raspored raspored)
+        public void CreateRaspored(List<PrijavaNaTerminPolaganja> prijave)
         {
             CreateRasporedSystemOperation operation= new CreateRasporedSystemOperation();
-            operation.raspored= raspored;
+            operation.prijave= prijave;
             operation.Execute();
         }
 
-        public List<Raspored> SearchRaspored(TerminPolaganja t)
+        public List<PrijavaNaTerminPolaganja> SearchRaspored(TerminPolaganja t)
         {
             SearchRasporedSystemOperation operation = new SearchRasporedSystemOperation();
             operation.termin= t;
             operation.Execute();
-            return operation.raspored;
+            return operation.prijave;
         }
 
         public  List<PrijavaNaTerminPolaganja> SearchPrijaveNaTerminPolaganjaStudent(Student student)

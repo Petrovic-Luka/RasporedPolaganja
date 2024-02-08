@@ -41,59 +41,68 @@
             // 
             this.dgvPrikaz.AllowUserToAddRows = false;
             this.dgvPrikaz.AllowUserToDeleteRows = false;
+            this.dgvPrikaz.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPrikaz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrikaz.Location = new System.Drawing.Point(62, 109);
             this.dgvPrikaz.MultiSelect = false;
             this.dgvPrikaz.Name = "dgvPrikaz";
             this.dgvPrikaz.ReadOnly = true;
             this.dgvPrikaz.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPrikaz.Size = new System.Drawing.Size(526, 197);
+            this.dgvPrikaz.Size = new System.Drawing.Size(631, 197);
             this.dgvPrikaz.TabIndex = 0;
             // 
             // cmbIspit
             // 
             this.cmbIspit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIspit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbIspit.FormattingEnabled = true;
             this.cmbIspit.Location = new System.Drawing.Point(62, 60);
             this.cmbIspit.Name = "cmbIspit";
-            this.cmbIspit.Size = new System.Drawing.Size(169, 21);
+            this.cmbIspit.Size = new System.Drawing.Size(169, 24);
             this.cmbIspit.TabIndex = 1;
             // 
             // lblPredmet
             // 
             this.lblPredmet.AutoSize = true;
+            this.lblPredmet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPredmet.Location = new System.Drawing.Point(89, 34);
             this.lblPredmet.Name = "lblPredmet";
-            this.lblPredmet.Size = new System.Drawing.Size(46, 13);
+            this.lblPredmet.Size = new System.Drawing.Size(58, 16);
             this.lblPredmet.TabIndex = 2;
             this.lblPredmet.Text = "Predmet";
             // 
             // btnPretrazi
             // 
+            this.btnPretrazi.BackColor = System.Drawing.Color.Honeydew;
+            this.btnPretrazi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPretrazi.Location = new System.Drawing.Point(257, 58);
             this.btnPretrazi.Name = "btnPretrazi";
             this.btnPretrazi.Size = new System.Drawing.Size(75, 23);
             this.btnPretrazi.TabIndex = 5;
             this.btnPretrazi.Text = "Pretrazi";
-            this.btnPretrazi.UseVisualStyleBackColor = true;
+            this.btnPretrazi.UseVisualStyleBackColor = false;
             // 
             // btnRaspored
             // 
+            this.btnRaspored.BackColor = System.Drawing.Color.Honeydew;
+            this.btnRaspored.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRaspored.Location = new System.Drawing.Point(62, 345);
             this.btnRaspored.Name = "btnRaspored";
-            this.btnRaspored.Size = new System.Drawing.Size(106, 23);
+            this.btnRaspored.Size = new System.Drawing.Size(150, 23);
             this.btnRaspored.TabIndex = 8;
             this.btnRaspored.Text = "Kreiraj Raspored ";
-            this.btnRaspored.UseVisualStyleBackColor = true;
+            this.btnRaspored.UseVisualStyleBackColor = false;
             // 
             // btnShowRaspored
             // 
-            this.btnShowRaspored.Location = new System.Drawing.Point(186, 345);
+            this.btnShowRaspored.BackColor = System.Drawing.Color.Honeydew;
+            this.btnShowRaspored.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowRaspored.Location = new System.Drawing.Point(225, 345);
             this.btnShowRaspored.Name = "btnShowRaspored";
-            this.btnShowRaspored.Size = new System.Drawing.Size(107, 23);
+            this.btnShowRaspored.Size = new System.Drawing.Size(153, 23);
             this.btnShowRaspored.TabIndex = 9;
             this.btnShowRaspored.Text = "Prikazi Raspored";
-            this.btnShowRaspored.UseVisualStyleBackColor = true;
+            this.btnShowRaspored.UseVisualStyleBackColor = false;
             // 
             // UcShowTerminePolaganja
             // 
@@ -106,7 +115,7 @@
             this.Controls.Add(this.cmbIspit);
             this.Controls.Add(this.dgvPrikaz);
             this.Name = "UcShowTerminePolaganja";
-            this.Size = new System.Drawing.Size(658, 566);
+            this.Size = new System.Drawing.Size(800, 400);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrikaz)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

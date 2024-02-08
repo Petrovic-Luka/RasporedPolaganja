@@ -1,4 +1,5 @@
-﻿using ClientSide.UserControls;
+﻿using ClientSide.Forms;
+using ClientSide.UserControls;
 using Common.Domain;
 using System;
 using System.Collections.Generic;
@@ -38,36 +39,76 @@ namespace ClientSide.Controllers
 
         private void BtnKreirajRaspored_Click(object sender, EventArgs e)
         {
-            Raspored raspored= new Raspored();
-            raspored.prijave = ucKreirajRaspored.prijave;
-            raspored.ZadateSale = ucKreirajRaspored.OdabraneSale.ToList<Sala>();
-            var response = ClientCommunication.Instance.CreateRaspored(raspored);
+            var prijave = ucKreirajRaspored.prijave;
+            var sale = ucKreirajRaspored.OdabraneSale.ToList<Sala>();
+            int mesta = 0;
+            foreach(var i in sale)
+            {
+                mesta += i.BrojMesta;
+            }
+            if(prijave.Count()>mesta)
+            {
+                MessageBox.Show("Nema dovoljno mesta u salama");
+                return;
+            }
+            int brojacSala = 0;
+            int brojacMesta = 0;
+            foreach (PrijavaNaTerminPolaganja p in prijave)
+            {
+                p.SalaId = sale[brojacSala].SalaId;
+                brojacMesta++;
+                if (brojacMesta >= sale[brojacSala].BrojMesta)
+                {
+                    brojacSala++;
+                    brojacMesta = 0;
+                }
+            }
+            var response = ClientCommunication.Instance.CreateRaspored(prijave);
             MessageBox.Show(response);
         }
 
         private void BtnUkloniSalu_Click(object sender, EventArgs e)
         {
-            Sala s = ucKreirajRaspored.dgwDodateSale.SelectedRows[0].DataBoundItem as Sala;
-            ucKreirajRaspored.Sale.Add(s);
-            ucKreirajRaspored.OdabraneSale.Remove(s);
-            ucKreirajRaspored.brojDodatihMesta -= s.BrojMesta;
-            ucKreirajRaspored.lblMesta.Text = $"Odabrano mesta {ucKreirajRaspored.brojDodatihMesta}";
+            try
+            {
+                Sala s = ucKreirajRaspored.dgwDodateSale.SelectedRows[0].DataBoundItem as Sala;
+                ucKreirajRaspored.Sale.Add(s);
+                ucKreirajRaspored.OdabraneSale.Remove(s);
+                ucKreirajRaspored.brojDodatihMesta -= s.BrojMesta;
+                ucKreirajRaspored.lblMesta.Text = $"Odabrano mesta {ucKreirajRaspored.brojDodatihMesta}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nije odabrana sala");
+            }
+           
         }
 
         private void btnDodajSaluClick(object sender, EventArgs e)
         {
-            Sala s= ucKreirajRaspored.dgwSale.SelectedRows[0].DataBoundItem as Sala;
-            ucKreirajRaspored.OdabraneSale.Add(s);
-            ucKreirajRaspored.Sale.Remove(s);
-            ucKreirajRaspored.brojDodatihMesta += s.BrojMesta;
-            ucKreirajRaspored.lblMesta.Text = $"Odabrano mesta {ucKreirajRaspored.brojDodatihMesta}";
+            try
+            {
+                Sala s = ucKreirajRaspored.dgwSale.SelectedRows[0].DataBoundItem as Sala;
+                ucKreirajRaspored.OdabraneSale.Add(s);
+                ucKreirajRaspored.Sale.Remove(s);
+                ucKreirajRaspored.brojDodatihMesta += s.BrojMesta;
+                ucKreirajRaspored.lblMesta.Text = $"Odabrano mesta {ucKreirajRaspored.brojDodatihMesta}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nije odabrana sala");
+            }
         }
 
         public UcShowRaspored CreateUcShowRaspored(TerminPolaganja t)
         {
             UcShowRaspored ucShowRaspored = new UcShowRaspored();
-            ucShowRaspored.raspored = new BindingList<Raspored>(ClientCommunication.Instance.SearchRaspored(t));
+            ucShowRaspored.raspored = new BindingList<PrijavaNaTerminPolaganja>(ClientCommunication.Instance.SearchRaspored(t));
             ucShowRaspored.dgwRaspored.DataSource = ucShowRaspored.raspored;
+            ucShowRaspored.dgwRaspored.Columns["SalaId"].Visible = false;
+            ucShowRaspored.dgwRaspored.Columns["Predmet"].Visible = false;
+            ucShowRaspored.dgwRaspored.Columns["Tip"].Visible = false;
+            ucShowRaspored.dgwRaspored.Columns["Izasao"].Visible = false;
             return ucShowRaspored;
         }
     }

@@ -133,6 +133,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControls\UcIspit.resx">
       <DependentUpon>UcIspit.cs</DependentUpon>
@@ -174,6 +175,11 @@
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\Coyote.ico" />
+    <Content Include="Resources\s1.jpg" />
+    <Content Include="Resources\s2.jpg" />
+    <Content Include="Resources\s3.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

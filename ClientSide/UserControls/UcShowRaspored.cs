@@ -13,7 +13,7 @@ namespace ClientSide.UserControls
 {
     public partial class UcShowRaspored : UserControl
     {
-        public BindingList<Raspored> raspored;
+        public BindingList<PrijavaNaTerminPolaganja> raspored;
         public UcShowRaspored()
         {
             InitializeComponent();

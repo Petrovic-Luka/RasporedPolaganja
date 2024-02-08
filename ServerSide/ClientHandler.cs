@@ -125,8 +125,8 @@ namespace ServerSide
                 }
                 else if(req.Operation==Operation.CreateRaspored)
                 {
-                    Raspored raspored = (Raspored)req.Body;
-                    Controller.Instance.CreateRaspored(raspored);
+                    List<PrijavaNaTerminPolaganja> prijave = (List<PrijavaNaTerminPolaganja>)req.Body;
+                    Controller.Instance.CreateRaspored(prijave);
                     response.Message = "Uspesno kreiran raspored";
                 }
                 else if (req.Operation==Operation.SearchRaspored)

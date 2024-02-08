@@ -23,8 +23,8 @@ namespace ClientSide
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
+                this.Close();
             }
 
         }

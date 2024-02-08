@@ -39,8 +39,8 @@ namespace ClientSide.Controllers
         private MainCoordinator()
         {
             studentGuiController = new StudentGuiController();
-            ispitGuiKontroler=new IspitGuiController();
-            terminPolaganjaGuiController=new TerminPolaganjaGuiController();
+            ispitGuiKontroler = new IspitGuiController();
+            terminPolaganjaGuiController = new TerminPolaganjaGuiController();
             rasporedGuiController = new RasporedGuiController();
         }
 
@@ -70,21 +70,30 @@ namespace ClientSide.Controllers
         {
             frmLogIn.Visible = false;
             frmProfesor = new FrmProfesor();
+            frmProfesor.ShowDialog();
+            //try
+            //{
+            //    frmProfesor.ShowDialog();
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    MessageBox.Show(ex.Message);
+            //}
+            frmLogIn.Visible = true;
+        }
+
+        public void ShowPrikaziIspite()
+        {
             try
             {
-                frmProfesor.ShowDialog();
+                frmProfesor.ChangePanel(ispitGuiKontroler.CreateUcShowIspit());
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-            frmLogIn.Visible = true;
-        }
-
-        public void ShowPrikaziIspite()
-        {
-            frmProfesor.ChangePanel(ispitGuiKontroler.CreateUcShowIspit());
         }
 
         public void ShowDodajIspit()
@@ -114,19 +123,35 @@ namespace ClientSide.Controllers
 
         public void SearchIspite()
         {
+
             frmStudent.dgwTermini.DataSource = terminPolaganjaGuiController.SearchIspite((Ispit)frmStudent.cmbIspit.SelectedItem);
+
         }
 
         public void CreatePrijava()
         {
             terminPolaganjaGuiController.CreatePrijava(frmStudent.zadatiTermini.ToList<TerminPolaganja>(), loggedInStudent);
-            frmStudent.dgwPrijavljeni.DataSource = ClientCommunication.Instance.SearchPrijavljeneStudent(MainCoordinator.Instance.loggedInStudent);
+            try
+            {
+                frmStudent.dgwPrijavljeni.DataSource = ClientCommunication.Instance.SearchPrijavljeneStudent(MainCoordinator.Instance.loggedInStudent);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public void DeletePrijava()
         {
             terminPolaganjaGuiController.DeletePrijava(frmStudent.zadatiTermini.ToList<TerminPolaganja>(), loggedInStudent);
-            frmStudent.dgwPrijavljeni.DataSource = ClientCommunication.Instance.SearchPrijavljeneStudent(MainCoordinator.Instance.loggedInStudent);
+            try
+            {
+                frmStudent.dgwPrijavljeni.DataSource = ClientCommunication.Instance.SearchPrijavljeneStudent(MainCoordinator.Instance.loggedInStudent);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public void ShowCreateRaspored(TerminPolaganja t)

@@ -29,8 +29,17 @@ namespace ClientSide.Controllers
             frmStudent.dgwDodati.DataSource=frmStudent.zadatiTermini;
             frmStudent.btnDodaj.Click += (s, e) => DodajPrijavu();
             frmStudent.btnUkloni.Click += (s, e) => UkloniPrijavu();
-            frmStudent.dgwPrijavljeni.DataSource = ClientCommunication.Instance.SearchPrijavljeneStudent(MainCoordinator.Instance.loggedInStudent);
+            SetDgwPrijavljeni();
         }
+        private void SetDgwPrijavljeni()
+        {
+            frmStudent.dgwPrijavljeni.DataSource = ClientCommunication.Instance.SearchPrijavljeneStudent(MainCoordinator.Instance.loggedInStudent);
+            frmStudent.dgwPrijavljeni.Columns["SalaId"].Visible = false;
+            frmStudent.dgwPrijavljeni.Columns["BrojIndeksa"].Visible = false;
+            frmStudent.dgwPrijavljeni.Columns["Sala"].Visible = false;
+            frmStudent.dgwPrijavljeni.Columns["Izasao"].Visible = false;
+        }
+
 
         public void BtnLogInOnClick(object sender, EventArgs e)
         {
@@ -53,11 +62,11 @@ namespace ClientSide.Controllers
                 {
                     Profesor p = CreateProfesorFromForm();
                     p = ClientCommunication.Instance.LogInProfesor(p);
-                    //if (p == null)
-                    //{
-                    //    MessageBox.Show("Korisnik sa zadatim kredencijalima nije pronadjen");
-                    //    return;
-                    //}
+                    if (p == null)
+                    {
+                        MessageBox.Show("Korisnik sa zadatim kredencijalima nije pronadjen");
+                        return;
+                    }
                     MainCoordinator.Instance.loggedInProfesor = p;
                     MainCoordinator.Instance.showFrmProfesor();
                 }
@@ -81,7 +90,7 @@ namespace ClientSide.Controllers
         {
             Profesor profesor = new Profesor();
             profesor.Email = frmLogIn.txtEmail.Text;
-            profesor.Prezime = frmLogIn.txtPassword.Text;
+            profesor.Sifra = frmLogIn.txtPassword.Text;
             return profesor;
         }
 
@@ -150,18 +159,32 @@ namespace ClientSide.Controllers
 
         public void DodajPrijavu()
         {
-            TerminPolaganja t = frmStudent.dgwTermini.SelectedRows[0].DataBoundItem as TerminPolaganja;
-            if (frmStudent.zadatiTermini.Contains(t))
+            try
             {
-                MessageBox.Show("Termin vec zadat");
-                return;
+                TerminPolaganja t = frmStudent.dgwTermini.SelectedRows[0].DataBoundItem as TerminPolaganja;
+                if (frmStudent.zadatiTermini.Contains(t))
+                {
+                    MessageBox.Show("Termin vec zadat");
+                    return;
+                }
+                frmStudent.zadatiTermini.Add(t);
             }
-            frmStudent.zadatiTermini.Add(t);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nije odabran termin");
+            }
         }
         public void UkloniPrijavu()
         {
-            TerminPolaganja t = frmStudent.dgwDodati.SelectedRows[0].DataBoundItem as TerminPolaganja;
-            frmStudent.zadatiTermini.Remove(t);
+            try
+            {
+                TerminPolaganja t = frmStudent.dgwDodati.SelectedRows[0].DataBoundItem as TerminPolaganja;
+                frmStudent.zadatiTermini.Remove(t);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nije odabran termin");
+            }
         }
 
     }
