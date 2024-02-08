@@ -109,6 +109,7 @@ namespace ClientSide.Controllers
             ucShowRaspored.dgwRaspored.Columns["Predmet"].Visible = false;
             ucShowRaspored.dgwRaspored.Columns["Tip"].Visible = false;
             ucShowRaspored.dgwRaspored.Columns["Izasao"].Visible = false;
+            ucShowRaspored.dgwRaspored.Columns["DatumOdrzavanja"].Visible=false;
             return ucShowRaspored;
         }
     }

@@ -115,6 +115,11 @@ namespace ClientSide.Controllers
             }
             var result = ClientCommunication.Instance.CreateStudent(student);
             MessageBox.Show(result);
+            ucKreirajStudenta.txtIndeks.Text = "";
+            ucKreirajStudenta.txtIme.Text = "";
+            ucKreirajStudenta.txtPrezime.Text = "";
+            ucKreirajStudenta.txtEmail.Text = "";
+            ucKreirajStudenta.txtSifra.Text = "";
         }
 
         private bool ValidateStudent(Student student)

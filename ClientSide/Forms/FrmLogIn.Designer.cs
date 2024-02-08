@@ -43,7 +43,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(149, 22);
             this.txtEmail.TabIndex = 0;
-            this.txtEmail.Text = "lp@gmail.com";
             // 
             // txtPassword
             // 
@@ -54,7 +53,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(149, 22);
             this.txtPassword.TabIndex = 1;
-            this.txtPassword.Text = "12345";
             // 
             // btnLogIn
             // 

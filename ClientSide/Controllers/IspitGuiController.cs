@@ -14,7 +14,6 @@ namespace ClientSide.Controllers
         public UcIspit CreateUcShowIspit()
         {
             ucIspit =new UcIspit();
-            //ucIspit.btnAdd.Click
             ucIspit.dgvDisplay.DataSource = ClientCommunication.Instance.GetAllIspit();
             return ucIspit;
         }

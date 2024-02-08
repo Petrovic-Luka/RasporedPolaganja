@@ -68,9 +68,6 @@ namespace ClientSide.Controllers
 
         private void BtnKreiraj_Click(object sender, EventArgs e)
         {
-            //validacija
-            //pokupi podatke sa forme
-            //TODO zavrsi
             TerminPolaganja termin=new TerminPolaganja();
             termin.Ispit =(Ispit) kreirajTerminPolaganja.cmbPredmet.SelectedItem;
             termin.IspitId = termin.Ispit.IspitId;
@@ -120,6 +117,15 @@ namespace ClientSide.Controllers
 
         public void DeletePrijava(List<TerminPolaganja> termini, Student student)
         {
+            foreach (var termin in termini)
+            {
+                if (termin.Datum.Date < System.DateTime.Now.Date)
+                {
+                    MessageBox.Show($"Termin za {termin.Ispit} je prosao");
+                    return;
+                }
+            }
+
             if (termini.Count < 1)
             {
                 MessageBox.Show("Niste odabrali termin");

@@ -25,9 +25,6 @@ namespace DataAccess
         {
 
         }
-
-        //ako je konekcija vec otvorena, iskoristice nju
-        //ako nije, otvorice konekciju
         public DbConnection GetDbConnection()
         {
             if (!connection.IsReady())

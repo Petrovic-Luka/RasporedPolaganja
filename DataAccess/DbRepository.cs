@@ -2,10 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess
 {
@@ -29,7 +25,7 @@ namespace DataAccess
             else
             {
                 int x = cmd.ExecuteNonQuery();
-                Console.WriteLine("Affected rows insert: " + x);
+                Console.WriteLine("rows inserted: " + x);
             }
         }
 
@@ -48,7 +44,7 @@ namespace DataAccess
             string command = $"delete from {entity.TableName} where {criteria}";
             SqlCommand cmd = DbConnectionFactory.Instance.GetDbConnection().CreateCommand(command);
             int x = cmd.ExecuteNonQuery();
-            Console.WriteLine("Affected rows delete: " + x);
+            Console.WriteLine("rows deleted: " + x);
         }
 
         public IEntity Get(IEntity entity, string criteria)
@@ -118,7 +114,7 @@ namespace DataAccess
             SqlCommand cmd = DbConnectionFactory.Instance.GetDbConnection().CreateCommand(command);
             int x = cmd.ExecuteNonQuery();
 
-            Console.WriteLine("Affected rows update: " + x);
+            Console.WriteLine("updated rows: " + x);
         }
     }
 }
